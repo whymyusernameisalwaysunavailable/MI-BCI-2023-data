@@ -1,10 +1,10 @@
 function csp_feature = Rsx_singlewindow_cspfeature(EEG_data,Csp_transpose,filter_num)
-% ±¾º¯ÊıÀûÓÃµÃµ½µÄcsp¾ØÕó£¬¶ÔÊı¾İ½øĞĞ×ª»»ºÍÌØÕ÷ÌáÈ¡ 2021.01.16
-%ÊäÈë:  EEg_data£ºĞĞÊÇÍ¨µÀ£¬ÁĞÊÇÑù±¾
-%       Csp_transpose: CSP»ñÈ¡µÄ±ä»»¾ØÕó
-%       filter_num£º ÂË²¨Æ÷ÊıÁ¿£¬³É¶Ô³öÏÖ£¬ÊÇÅ¼Êı
-%Êä³ö£º csp_feature£º1* filter_num
-%% ×ª»»Êı¾İ
+% æœ¬å‡½æ•°åˆ©ç”¨å¾—åˆ°çš„cspçŸ©é˜µï¼Œå¯¹æ•°æ®è¿›è¡Œè½¬æ¢å’Œç‰¹å¾æå– 2021.01.16
+%è¾“å…¥:  EEg_dataï¼šè¡Œæ˜¯é€šé“ï¼Œåˆ—æ˜¯æ ·æœ¬
+%       Csp_transpose: CSPè·å–çš„å˜æ¢çŸ©é˜µ
+%       filter_numï¼š æ»¤æ³¢å™¨æ•°é‡ï¼Œæˆå¯¹å‡ºç°ï¼Œæ˜¯å¶æ•°
+%è¾“å‡ºï¼š csp_featureï¼š1* filter_num
+%% è½¬æ¢æ•°æ®
     [m, n] = size(Csp_transpose);
     %check for valid dimensions
     if(m<filter_num)
@@ -33,7 +33,7 @@ function csp_feature = Rsx_singlewindow_cspfeature(EEG_data,Csp_transpose,filter
             Trans_data(t, d) = dot(Ptild(d,:),EEG_data(:,t));
        end
     end  
-%% ÌáÈ¡ÌØÕ÷
+%% æå–ç‰¹å¾
     LogDown = sum(var(Trans_data,1,1));
     LogUp = var(Trans_data,1,1);
     csp_feature = log(LogUp/LogDown);
