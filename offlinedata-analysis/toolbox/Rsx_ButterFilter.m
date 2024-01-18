@@ -1,6 +1,6 @@
 function [ output_args ] = Rsx_ButterFilter(FiterOrder,Wband,SampleFre,FiterType,Data,Channelnum)
-% º¯Êı¹¦ÄÜ£º¸ù¾İÊäÈëµÄÆµÂÊ´øºÍÂË²¨Æ÷ÀàĞÍ½øĞĞ°ÍÌØÎÖ×ÈÂË²¨
-% ²ÎÊıËµÃ÷£ºFiterOrder--ÂË²¨Æ÷½×Êı£¬Wband--ÆµÂÊÇø¼ä£¬SampleFre--²ÉÑùÆµÂÊ£¬FiterType--ÂË²¨Æ÷ÀàĞÍ£¬´øÍ¨»òÕß´ø×è
+% å‡½æ•°åŠŸèƒ½ï¼šæ ¹æ®è¾“å…¥çš„é¢‘ç‡å¸¦å’Œæ»¤æ³¢å™¨ç±»å‹è¿›è¡Œå·´ç‰¹æ²ƒå…¹æ»¤æ³¢
+% å‚æ•°è¯´æ˜ï¼šFiterOrder--æ»¤æ³¢å™¨é˜¶æ•°ï¼ŒWband--é¢‘ç‡åŒºé—´ï¼ŒSampleFre--é‡‡æ ·é¢‘ç‡ï¼ŒFiterType--æ»¤æ³¢å™¨ç±»å‹ï¼Œå¸¦é€šæˆ–è€…å¸¦é˜»
 % Sub_fre_num = size(Wband,1);
 % if Sub_fre_num == 1
     wn = Wband/(SampleFre/2);
@@ -18,7 +18,7 @@ function [ output_args ] = Rsx_ButterFilter(FiterOrder,Wband,SampleFre,FiterType
 %             output_args(j,:,i) = filter(Pa,Pb,Data(j,:));
 %         end
 %     end
-% %% FFT²é¿´ÆµÆ×
+% %% FFTæŸ¥çœ‹é¢‘è°±
 % T = 1/SampleFre;                                             % Sampling period
 % L = length(Data(1,:));                                       % Length of signal
 % t = (0:L-1)*T;                                               % Time vector
@@ -32,7 +32,7 @@ function [ output_args ] = Rsx_ButterFilter(FiterOrder,Wband,SampleFre,FiterType
 % title('Single-Sided Amplitude Spectrum of X(t)')
 % xlabel('f (Hz)')
 % ylabel('|P1(f)|')
-% % ²é¿´´ø×èÂË²¨Æ÷ÏìÓ¦
+% % æŸ¥çœ‹å¸¦é˜»æ»¤æ³¢å™¨å“åº”
 % figure(2)
 % freqz(Pa,Pb);
 end
